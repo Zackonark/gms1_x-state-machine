@@ -28,15 +28,18 @@ INSTALLATION:
 5c) PROFIT!
 
 
+SUB-STATE USAGE:
+
+If you plan on using sub-states, I've provided a script that will automatically call the "enter" sub-state for you. If you don't plan on using sub-states, simply setting the "state" variable to the name of whatever state you wish the go to will work just fine. If you have no switch statement denoting the different sub-states, and you switch states using state_change(), it will run the next state before the current state is finished. So it is recommended to throw an "exit;" statement after your state_change() to prevent silliness.
+
+
 EXAMPLE CREATE EVENT:
 
 After you've written a chunk of code like this, the state machine makes as simple as 1 line of code to execute the entire state machine
 
 "
-scr_state_machine_init();
-scr_state_machine_add("default", scr_user, 0);
+scr_state_machine_init("default", scr_user, 0);
 scr_state_machine_add("jump", scr_user, 1);
-state = "default";
 "
 
 
